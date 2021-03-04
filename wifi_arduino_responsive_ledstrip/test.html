@@ -1,0 +1,32 @@
+<!DOCTYPE html><html>
+<head><meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.0/jscolor.min.js"></script>
+</head><body style="background-color: #575151; font-family: Helvetica, sans-serif;" onload="initP();">
+<h1>Odabir boja prikaza frekvencija</h1>
+<h4 style="margin-bottom: 2px;">Odaberi boju za prikaz niskih frekvencija:</h4>
+<input data-jscolor="{onInput:'update(this)', preset: 'dark'}" id="p1"> <br/>
+<h4 style="margin-bottom: 2px;">Odaberi boju za prikaz srednjih frekvencija:</h4>
+<input data-jscolor="{onInput:'update(this)', preset: 'dark'}" id="p2"> <br/>
+<h4 style="margin-bottom: 2px;">Odaberi boju za prikaz visokih frekvencija:</h4>
+<input data-jscolor="{onInput:'update(this)', preset: 'dark'}" id="p3"> <br/> <br/>
+<button onclick="pOut();" id="but" style="font-weight: bold; font-size: 15px; background-color: #4CAF50; color: white; border: none; text-align: center; padding: 6px 12px;">Spremi odabrane boje</button>
+<script> function initP(){
+document.querySelector('#p1').jscolor.fromString("#575151");
+document.querySelector('#p2').jscolor.fromString("#575151");
+document.querySelector('#p3').jscolor.fromString("#575151");}
+function pOut(){
+message = "rgb1=";
+message += "r" + Math.round(document.querySelector('#p1').jscolor.channel('R'));
+message += "g" + Math.round(document.querySelector('#p1').jscolor.channel('G'));
+message += "b" + Math.round(document.querySelector('#p1').jscolor.channel('B')) + ";";
+message += "&rgb2=";
+message += "r" + Math.round(document.querySelector('#p2').jscolor.channel('R'));
+message += "g" + Math.round(document.querySelector('#p2').jscolor.channel('G'));
+message += "b" + Math.round(document.querySelector('#p2').jscolor.channel('B')) + ";";
+message += "&rgb3=";
+message += "r" + Math.round(document.querySelector('#p3').jscolor.channel('R'));
+message += "g" + Math.round(document.querySelector('#p3').jscolor.channel('G'));
+message += "b" + Math.round(document.querySelector('#p3').jscolor.channel('B')) + ";";
+document.getElementById("but").href = "\n" + window.location.href + "/spectrum?" + message;}
+jscolor.trigger('input'); </script> </body>
+
